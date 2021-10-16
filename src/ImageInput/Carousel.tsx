@@ -14,6 +14,7 @@ import { ImagePreviewProps } from './ImagePreview';
 
 SwiperCore.use([Navigation, Thumbs]);
 
+
 const useStyles = makeStyles((theme: Theme) => ({
   containerDefaultImage: {
     display: 'flex',
