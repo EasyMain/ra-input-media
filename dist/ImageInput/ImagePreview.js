@@ -3,7 +3,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 //@ts-ignore
 import { Pannellum } from "pannellum-react";
 import React from 'react';
-import './main.css';
 var useStyles = makeStyles(function (theme) { return ({
     editButton: {
         backgroundColor: theme.palette.info.main,

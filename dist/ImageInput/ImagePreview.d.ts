@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import './main.css';
 export interface ImagePreviewProps {
     source: string;
     src?: string;

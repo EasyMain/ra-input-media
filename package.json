@@ -1,17 +1,18 @@
 {
     "name": "ra-input-media",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "description": "Media inputs components for react-admin, useful for input and preview images and videos in admin GUIs.",
-    "main": "lib/index.js",
-    "module": "esm/index.js",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "style": "dist/index.min.css",
+    "types": "dist/index.d.ts",
     "sideEffects": false,
     "files": [
         "LICENSE",
+        "dist/*.css",
         "*.md",
-        "lib",
-        "esm",
-        "src",
-        "src/ImageInput/main.css"
+        "dist",
+        "src"
     ],
     "repository": {
         "type": "git",
@@ -24,11 +25,10 @@
     },
     "homepage": "https://github.com/EasyMain/ra-input-media#readme",
     "scripts": {
-        "build": "yarn run build-cjs && yarn run build-esm && yarn run copy-files",
-        "build-cjs": "rimraf ./lib && tsc",
-        "build-esm": "rimraf ./esm && tsc --outDir esm --module es2015",
-        "copy-files": "copyfiles -u 1 src/**/*.css ./lib/ ./esm/",
-        "watch": "tsc --outDir esm --module es2015 --watch"
+        "build": "yarn run build:dist && yarn run css:min",
+        "build:dist": "rimraf ./dist && tsc --outDir dist --module es2015",
+        "css:min": "css-minify -f src/index.css -o ./dist/",
+        "watch": "tsc --outDir dist --module es2015 --watch"
     },
     "peerDependencies": {
         "@material-ui/core": "^4.12.3",
@@ -36,10 +36,10 @@
         "ra-ui-materialui": "^3.17.2",
         "react": "^16.9.0 || ^17.0.0",
         "react-dom": "^16.9.0 || ^17.0.0",
-        "react-dropzone": "^11.4.2"
+        "react-dropzone": "^11.4.2",
+        "react-admin": "^3.19.0"
     },
     "dependencies": {
-        "react-admin": "^3.19.0",
         "swiper": "^7.0.6"
     },
     "devDependencies": {
