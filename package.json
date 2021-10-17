@@ -1,6 +1,6 @@
 {
     "name": "ra-input-media",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "Media inputs components for react-admin, useful for input and preview images and videos in admin GUIs.",
     "main": "lib/index.js",
     "module": "esm/index.js",
@@ -10,7 +10,8 @@
         "*.md",
         "lib",
         "esm",
-        "src"
+        "src",
+        "src/ImageInput/main.css"
     ],
     "repository": {
         "type": "git",
@@ -23,27 +24,29 @@
     },
     "homepage": "https://github.com/EasyMain/ra-input-media#readme",
     "scripts": {
-        "build": "yarn run build-cjs && yarn run build-esm",
+        "build": "yarn run build-cjs && yarn run build-esm && yarn run copy-files",
         "build-cjs": "rimraf ./lib && tsc",
         "build-esm": "rimraf ./esm && tsc --outDir esm --module es2015",
+        "copy-files": "copyfiles -u 1 src/**/*.css ./lib/ ./esm/",
         "watch": "tsc --outDir esm --module es2015 --watch"
     },
     "peerDependencies": {
+        "@material-ui/core": "^4.12.3",
         "ra-core": "^3.17.2",
         "ra-ui-materialui": "^3.17.2",
         "react": "^16.9.0 || ^17.0.0",
         "react-dom": "^16.9.0 || ^17.0.0",
-        "react-dropzone": "^11.4.2",
-        "@material-ui/core": "^4.12.3"
+        "react-dropzone": "^11.4.2"
     },
     "dependencies": {
         "react-admin": "^3.19.0",
         "swiper": "^7.0.6"
     },
     "devDependencies": {
-        "react-redux": "^7.2.5",
+        "copyfiles": "^2.4.1",
         "ra-core": "^3.18.2",
         "ra-ui-materialui": "^3.18.2",
+        "react-redux": "^7.2.5",
         "rimraf": "^2.6.3"
     }
 }

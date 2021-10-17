@@ -21,7 +21,7 @@ var useStyles = makeStyles(function (theme) { return ({
         maxHeight: '500px',
         width: '100%',
         fontSize: theme.spacing(15),
-    },
+    }
 }); });
 export var MainCarousel = function (_a) {
     var images = _a.images, _b = _a.is360, is360 = _b === void 0 ? false : _b, thumbs = _a.thumbs, onRemove = _a.onRemove, onChange = _a.onChange, children = _a.children;

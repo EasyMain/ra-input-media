@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxHeight: '500px',
     width: '100%',
     fontSize: theme.spacing(15),
-  },
+  }
 }));
 
 interface CarouselProps {
