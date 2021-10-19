@@ -38,15 +38,11 @@ export interface ImagePreviewProps {
 
 export const ImagePreview = ({
   src,
-  source,
   onRemove,
   is360,
-  onChange,
 }: ImagePreviewProps) => {
   const classes = useStyles();
-  React.useEffect(() => {
-    console.log(src);
-  }, [src]);
+
   return (
     <Box className="image-wrapper">
       <Box className="image-buttons">

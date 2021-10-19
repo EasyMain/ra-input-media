@@ -1,6 +1,6 @@
 {
     "name": "ra-input-media",
-    "version": "0.0.5",
+    "version": "0.0.8",
     "description": "Media inputs components for react-admin, useful for input and preview images and videos in admin GUIs.",
     "main": "dist/index.js",
     "module": "dist/index.js",

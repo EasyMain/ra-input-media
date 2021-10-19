@@ -1,8 +1,8 @@
-import { ThumbsOptions } from 'swiper/types';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
-import React from 'react';
+import { ThumbsOptions } from "swiper/types";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import React from "react";
 interface CarouselProps {
     images?: any[];
     is360?: boolean;

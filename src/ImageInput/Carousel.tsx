@@ -1,33 +1,32 @@
-import { ThumbsOptions } from 'swiper/types';
-import InsertPhotoIcon from '@material-ui/icons/Image';
+import { ThumbsOptions } from "swiper/types";
+import InsertPhotoIcon from "@material-ui/icons/Image";
 
-import SwiperCore, { Navigation, Thumbs } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Thumbs } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
-import { Box, Theme } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
-import React, { ReactElement } from 'react';
-import { ImagePreviewProps } from './ImagePreview';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import { Box, Theme } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import React, { ReactElement } from "react";
+import { ImagePreviewProps } from "./ImagePreview";
 
 SwiperCore.use([Navigation, Thumbs]);
 
-
 const useStyles = makeStyles((theme: Theme) => ({
   containerDefaultImage: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: 'white',
-    backgroundColor: '#dadada',
-    height: '35vw',
-    minHeight: '200px',
-    maxHeight: '500px',
-    width: '100%',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+    backgroundColor: "#dadada",
+    height: "35vw",
+    minHeight: "200px",
+    maxHeight: "500px",
+    width: "100%",
     fontSize: theme.spacing(15),
-  }
+  },
 }));
 
 interface CarouselProps {
@@ -66,7 +65,7 @@ export const MainCarousel = ({
           onChange: onChange(images[0]),
           is360,
         })
-      ) : (
+      ) : images && images.length > 0 ? (
         <Swiper
           loop
           spaceBetween={0}
@@ -74,27 +73,20 @@ export const MainCarousel = ({
           thumbs={thumbs}
           className="main-swiper"
         >
-          {images && images.length > 0 ? (
-            images.map((item, index: number) => (
-              <SwiperSlide key={index}>
-                {React.cloneElement(
-                  children as ReactElement<ImagePreviewProps>,
-                  {
-                    src: item[children.props.source],
-                    onRemove: onRemove(item),
-                    onChange: onChange(item),
-                  }
-                )}
-              </SwiperSlide>
-            ))
-          ) : (
-            <SwiperSlide>
-              <Box className={classes.containerDefaultImage}>
-                <InsertPhotoIcon fontSize="inherit" />
-              </Box>
+          {images.map((item, index: number) => (
+            <SwiperSlide key={index}>
+              {React.cloneElement(children as ReactElement<ImagePreviewProps>, {
+                src: item[children.props.source],
+                onRemove: onRemove(item),
+                onChange: onChange(item),
+              })}
             </SwiperSlide>
-          )}
+          ))}
         </Swiper>
+      ) : (
+        <Box className={classes.containerDefaultImage}>
+          <InsertPhotoIcon fontSize="inherit" />
+        </Box>
       )}
     </>
   );

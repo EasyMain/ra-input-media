@@ -26,11 +26,8 @@ var useStyles = makeStyles(function (theme) { return ({
     },
 }); });
 export var ImagePreview = function (_a) {
-    var src = _a.src, source = _a.source, onRemove = _a.onRemove, is360 = _a.is360, onChange = _a.onChange;
+    var src = _a.src, onRemove = _a.onRemove, is360 = _a.is360;
     var classes = useStyles();
-    React.useEffect(function () {
-        console.log(src);
-    }, [src]);
     return (React.createElement(Box, { className: "image-wrapper" },
         React.createElement(Box, { className: "image-buttons" },
             React.createElement(IconButton, { onClick: onRemove, className: classes.deleteButton, size: "small", component: "span", style: {
